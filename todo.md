@@ -303,3 +303,7 @@
 - [x] Add railway.toml configuration
 - [x] Document required environment variables (RAILWAY-DEPLOY.md)
 - [x] Push to GitHub (force pushed to main)
+- [x] Created Railway project (ijar-monthly-rental) with MySQL database
+- [x] Set environment variables (DATABASE_URL, JWT_SECRET, NODE_ENV, VITE_APP_ID, VITE_APP_TITLE)
+- [x] Generated public domain: ijar-app-production.up.railway.app
+- [x] Build succeeded and site is live
