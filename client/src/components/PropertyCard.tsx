@@ -97,8 +97,8 @@ export default function PropertyCard({ property, compact }: PropertyCardProps) {
             />
           </button>
           {/* Price tag */}
-          <div className="absolute bottom-3 start-3 bg-[#0B1E2D]/90 backdrop-blur rounded-lg px-3 py-1.5 shadow-sm group-hover:bg-[#0B1E2D] transition-colors duration-300">
-            <span className="font-bold text-[#3ECFC0] text-lg">
+          <div className="absolute bottom-2 sm:bottom-3 start-2 sm:start-3 bg-[#0B1E2D]/90 backdrop-blur rounded-lg px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-sm group-hover:bg-[#0B1E2D] transition-colors duration-300">
+            <span className="font-bold text-[#3ECFC0] text-base sm:text-lg">
               {Number(property.monthlyRent).toLocaleString()} {t("payment.sar")}
             </span>
             <span className="text-white/60 text-xs ms-1">{t("property.perMonth")}</span>
@@ -106,7 +106,7 @@ export default function PropertyCard({ property, compact }: PropertyCardProps) {
         </div>
 
         {/* Content */}
-        <CardContent className="p-4">
+        <CardContent className="p-3 sm:p-4">
           <div className="mb-2">
             <Badge variant="secondary" className="text-[10px] mb-2 bg-[#3ECFC0]/10 text-[#3ECFC0] border-0">
               {t(typeKey)}

@@ -19,10 +19,10 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0B1E2D] text-white/90 mt-auto">
-      <div className="container py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="container py-10 sm:py-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
               {s("site.logoUrl") ? (
                 <img src={s("site.logoUrl")} alt="Logo" className="h-9 w-9 rounded-lg object-contain" />
@@ -114,7 +114,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/30">
+        <div className="border-t border-white/10 mt-8 sm:mt-10 pt-4 sm:pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-white/30">
           <p>&copy; {year} {siteName}. {t("footer.rights")}.</p>
           <p>{lang === "ar" ? "صُنع بـ ❤️ في المملكة العربية السعودية" : "Made with ❤️ in Saudi Arabia"}</p>
         </div>

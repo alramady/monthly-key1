@@ -287,3 +287,12 @@
 - [x] Update default CMS content to match Ijar monthly rental identity
 - [x] Update hero text, stats, services descriptions
 - [x] Update footer content
+
+## Font Improvement & Mobile Optimization
+- [x] Audit and unify Google Fonts (Arabic: Cairo/Tajawal, English: Inter/DM Sans)
+- [x] Update index.html font imports for optimal loading
+- [x] Update CSS font-family stacks for consistent rendering
+- [x] Fix font sizes for mobile (responsive typography scale with clamp)
+- [x] Fix mobile layout issues across all pages (Navbar, Home, Cards, Footer)
+- [x] Ensure RTL font rendering is clean on mobile
+- [x] Test on mobile viewport and all 148 tests passing

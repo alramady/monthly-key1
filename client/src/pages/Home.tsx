@@ -55,7 +55,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: string; suffix?: str
   }, [started, numericTarget]);
 
   return (
-    <div ref={ref} className="text-3xl md:text-4xl font-bold text-[#3ECFC0] font-heading counter-glow">
+    <div ref={ref} className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3ECFC0] font-heading counter-glow">
       {count.toLocaleString("en-US")}{hasPercent ? "%" : ""}{hasPlus ? "+" : ""}{suffix}
     </div>
   );
@@ -172,8 +172,8 @@ export default function Home() {
           style={{ transform: `translate(${mousePos.x * 25}px, ${mousePos.y * 25}px)`, animationDelay: '1s' }}
         />
 
-        <div className="container relative py-24 md:py-36">
-          <div className="max-w-3xl mx-auto text-center">
+        <div className="container relative py-16 sm:py-24 md:py-36">
+          <div className="max-w-3xl mx-auto text-center px-2 sm:px-0">
             {/* Animated Badge */}
             <div className="inline-flex items-center gap-2 border border-[#3ECFC0]/30 rounded-full px-4 py-1.5 mb-8 animate-slide-left glass-card">
               <span className="w-2 h-2 rounded-full bg-[#3ECFC0] animate-pulse" />
@@ -183,22 +183,22 @@ export default function Home() {
               <Sparkles className="h-3.5 w-3.5 text-[#C9A96E] animate-pulse" />
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-heading font-extrabold mb-6 leading-tight animate-slide-right">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-4 sm:mb-6 leading-snug sm:leading-tight animate-slide-right">
               {sl("hero.title", lang) || (lang === "ar"
                 ? "خبير الإيجار الشهري — الآن في السعودية"
                 : "Monthly Rental Expert — Now in Saudi Arabia")}
             </h1>
-            <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto fade-up visible" style={{ animationDelay: '0.3s' }}>
+            <p className="text-sm sm:text-lg md:text-xl text-white/70 mb-6 sm:mb-10 leading-relaxed max-w-2xl mx-auto fade-up visible" style={{ animationDelay: '0.3s' }}>
               {sl("hero.subtitle", lang) || (lang === "ar"
                 ? "إدارة إيجارات شهرية متميزة | الرياض • جدة • المدينة المنورة"
                 : "Premium monthly rental management | Riyadh • Jeddah • Madinah")}
             </p>
 
             {/* CTA Buttons with micro-interactions */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <Button
                 size="lg"
-                className="btn-animate bg-[#3ECFC0] text-[#0B1E2D] hover:bg-[#2ab5a6] border-0 font-bold text-base px-8 h-12"
+                className="btn-animate bg-[#3ECFC0] text-[#0B1E2D] hover:bg-[#2ab5a6] border-0 font-bold text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto"
                 onClick={() => setLocation("/list-property")}
               >
                 {lang === "ar" ? "أدرج عقارك" : "List Your Property"}
@@ -207,7 +207,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="btn-animate border-[#3ECFC0]/40 text-[#3ECFC0] hover:bg-[#3ECFC0]/10 hover:text-[#3ECFC0] font-bold text-base px-8 h-12"
+                className="btn-animate border-[#3ECFC0]/40 text-[#3ECFC0] hover:bg-[#3ECFC0]/10 hover:text-[#3ECFC0] font-bold text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto"
                 onClick={() => setLocation("/search")}
               >
                 {lang === "ar" ? "احجز إقامتك" : "Book Your Stay"}
@@ -219,8 +219,8 @@ export default function Home() {
 
       {/* ═══ Stats Section with Animated Counters ═══ */}
       <section className="bg-white border-b border-border/50 section-transition">
-        <div className="container py-12">
-          <StaggerGrid className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="container py-8 sm:py-12">
+          <StaggerGrid className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {stats.map((stat, i) => (
               <div key={i} className="text-center group">
                 <AnimatedCounter target={stat.value} />
@@ -234,20 +234,20 @@ export default function Home() {
       </section>
 
       {/* ═══ Services Section with Staggered Cards ═══ */}
-      <section className="bg-[#f5f7fa] py-20 section-transition">
+      <section className="bg-[#f5f7fa] py-12 sm:py-20 section-transition">
         <div className="container">
           <ScrollSection>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-center mb-3">
               {lang === "ar" ? "خدماتنا" : "Our Services"}
             </h2>
             <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
               {lang === "ar" ? "نقدم مجموعة متكاملة من الخدمات لتسهيل تجربة الإيجار الشهري" : "A complete suite of services for a seamless monthly rental experience"}
             </p>
           </ScrollSection>
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {services.map((service, i) => (
               <Card key={i} className="group card-hover border-border/50 bg-white cursor-default">
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   <div className="w-12 h-12 rounded-xl bg-[#3ECFC0]/10 flex items-center justify-center mb-4 group-hover:bg-[#3ECFC0]/20 transition-all duration-500 group-hover:scale-110">
                     <service.icon className="h-6 w-6 text-[#3ECFC0] icon-hover transition-transform duration-300 group-hover:scale-110" />
                   </div>
@@ -265,18 +265,18 @@ export default function Home() {
       </section>
 
       {/* ═══ How It Works - Dark Section with Step Animation ═══ */}
-      <section className="bg-[#0B1E2D] text-white py-20 section-transition relative overflow-hidden">
+      <section className="bg-[#0B1E2D] text-white py-12 sm:py-20 section-transition relative overflow-hidden">
         <div className="absolute inset-0 pattern-bg opacity-10" />
         <div className="container relative">
           <ScrollSection>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-center mb-3">
               {lang === "ar" ? "كيف يعمل" : "How It Works"}
             </h2>
             <p className="text-white/60 text-center mb-14 max-w-xl mx-auto">
               {lang === "ar" ? "ثلاث خطوات بسيطة للحصول على سكنك الشهري المثالي" : "Three simple steps to find your perfect monthly home"}
             </p>
           </ScrollSection>
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10">
             {steps.map((step, i) => (
               <div key={i} className="text-center group relative">
                 {/* Connecting line between steps */}
@@ -284,7 +284,7 @@ export default function Home() {
                   <div className="hidden md:block absolute top-8 start-[60%] w-[80%] h-[2px] bg-gradient-to-r from-[#3ECFC0]/30 to-transparent" />
                 )}
                 <div className="relative inline-block mb-4">
-                  <div className="text-5xl font-heading font-extrabold text-[#3ECFC0]/20 group-hover:text-[#3ECFC0]/40 transition-colors duration-500">
+                  <div className="text-4xl sm:text-5xl font-heading font-extrabold text-[#3ECFC0]/20 group-hover:text-[#3ECFC0]/40 transition-colors duration-500">
                     {step.num}
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -304,12 +304,12 @@ export default function Home() {
       </section>
 
       {/* ═══ Featured Properties with Slide Animation ═══ */}
-      <section className="py-20 bg-white section-transition">
+      <section className="py-12 sm:py-20 bg-white section-transition">
         <div className="container">
           <ScrollSection>
-            <div className="flex items-center justify-between mb-10">
+            <div className="flex items-center justify-between mb-6 sm:mb-10">
               <div>
-                <h2 className="text-2xl md:text-3xl font-heading font-bold">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold">
                   {lang === "ar" ? "عقارات مميزة" : "Featured Properties"}
                 </h2>
                 <p className="text-muted-foreground mt-1">
@@ -341,7 +341,7 @@ export default function Home() {
               ))}
             </div>
           ) : featured.data && featured.data.length > 0 ? (
-            <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {featured.data.map((prop) => (
                 <div key={prop.id} className="card-hover">
                   <PropertyCard property={prop} />
@@ -370,17 +370,17 @@ export default function Home() {
       </section>
 
       {/* ═══ Cities Section with Hover Effects ═══ */}
-      <section className="bg-[#f5f7fa] py-20 section-transition">
+      <section className="bg-[#f5f7fa] py-12 sm:py-20 section-transition">
         <div className="container">
           <ScrollSection>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-center mb-3">
               {lang === "ar" ? "مدننا" : "Our Cities"}
             </h2>
             <p className="text-muted-foreground text-center mb-12">
               {lang === "ar" ? "اكتشف العقارات المتاحة في أبرز المدن السعودية" : "Discover properties in Saudi Arabia's top cities"}
             </p>
           </ScrollSection>
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {(citiesQuery.data || []).slice(0, 6).map((city) => (
               <Card
                 key={city.id}
@@ -408,17 +408,17 @@ export default function Home() {
       </section>
 
       {/* ═══ Testimonials with Glassmorphism ═══ */}
-      <section className="py-20 bg-white section-transition">
+      <section className="py-12 sm:py-20 bg-white section-transition">
         <div className="container">
           <ScrollSection>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-center mb-3">
               {lang === "ar" ? "آراء عملائنا" : "What Our Clients Say"}
             </h2>
             <p className="text-muted-foreground text-center mb-12">
               {lang === "ar" ? "تجارب حقيقية من مستأجرين وملاك عقارات" : "Real experiences from tenants and property owners"}
             </p>
           </ScrollSection>
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {testimonials.map((item, i) => (
               <Card key={i} className="border-border/50 card-hover group relative overflow-hidden">
                 {/* Subtle gradient accent on hover */}
@@ -451,25 +451,25 @@ export default function Home() {
       </section>
 
       {/* ═══ CTA Section with Animated Background ═══ */}
-      <section className="bg-[#0B1E2D] text-white py-20 relative overflow-hidden section-transition">
+      <section className="bg-[#0B1E2D] text-white py-12 sm:py-20 relative overflow-hidden section-transition">
         <div className="absolute inset-0 pattern-bg opacity-20" />
         {/* Animated gradient orbs */}
         <div className="absolute top-0 start-1/4 w-96 h-96 rounded-full bg-[#3ECFC0]/5 blur-3xl animate-float-slow" />
         <div className="absolute bottom-0 end-1/4 w-72 h-72 rounded-full bg-[#C9A96E]/5 blur-3xl animate-float" />
         
         <ScrollSection className="container relative text-center">
-          <h2 className="text-2xl md:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-heading font-bold mb-4">
             {lang === "ar" ? "حقق أقصى استفادة من عقارك" : "Maximize Your Property's Potential"}
           </h2>
-          <p className="text-white/60 mb-10 max-w-lg mx-auto text-lg">
+          <p className="text-white/60 mb-6 sm:mb-10 max-w-lg mx-auto text-sm sm:text-lg">
             {lang === "ar"
               ? "احصل على تقييم إيجار مجاني واكتشف كم يمكن أن يحقق عقارك"
               : "Get a free rental assessment and discover your property's earning potential"}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Button
               size="lg"
-              className="btn-animate bg-[#3ECFC0] text-[#0B1E2D] hover:bg-[#2ab5a6] border-0 font-bold text-base px-8 h-12 animate-glow"
+              className="btn-animate bg-[#3ECFC0] text-[#0B1E2D] hover:bg-[#2ab5a6] border-0 font-bold text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto animate-glow"
               onClick={() => setLocation("/list-property")}
             >
               {lang === "ar" ? "أدرج عقارك مجاناً" : "List Your Property Free"}
@@ -478,7 +478,7 @@ export default function Home() {
             <Button
               size="lg"
               variant="outline"
-              className="btn-animate border-white/30 text-white hover:bg-white/10 font-bold text-base px-8 h-12"
+              className="btn-animate border-white/30 text-white hover:bg-white/10 font-bold text-sm sm:text-base px-6 sm:px-8 h-11 sm:h-12 w-full sm:w-auto"
               onClick={() => setLocation("/search")}
             >
               {lang === "ar" ? "تصفح العقارات" : "Browse Properties"}

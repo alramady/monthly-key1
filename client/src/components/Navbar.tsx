@@ -60,7 +60,7 @@ export default function Navbar() {
           : "bg-[#0B1E2D]/95 backdrop-blur"
     }`}>
       <div className="container">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 sm:h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
             {s("site.logoUrl") ? (
@@ -70,7 +70,7 @@ export default function Navbar() {
                 <Building2 className="h-5 w-5 text-[#0B1E2D]" />
               </div>
             )}
-            <span className="text-xl font-bold font-heading text-white">
+            <span className="text-lg sm:text-xl font-bold font-heading text-white">
               {lang === "ar" ? (s("site.nameAr") || "إيجار") : (s("site.nameEn") || "Ijar")}
             </span>
           </Link>
@@ -132,7 +132,7 @@ export default function Navbar() {
 
             {/* List Property CTA */}
             {isAuthenticated && (
-              <Link href="/list-property" className="hidden md:block">
+              <Link href="/list-property" className="hidden lg:block">
                 <Button size="sm" className="bg-[#3ECFC0] text-[#0B1E2D] hover:bg-[#2ab5a6] border-0 font-semibold btn-animate">
                   <Plus className="h-4 w-4 me-1.5" />
                   {t("nav.listProperty")}

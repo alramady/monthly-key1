@@ -50,10 +50,10 @@
   --color-gold: oklch(0.73 0.10 80);
   --color-gold-light: oklch(0.88 0.06 80);
   --color-slate-bg: oklch(0.97 0.003 240);
-  /* Font families */
-  --font-heading: 'Inter', 'Noto Kufi Arabic', system-ui, sans-serif;
-  --font-body: 'DM Sans', 'Noto Sans Arabic', system-ui, sans-serif;
-  --font-sans: 'DM Sans', 'Noto Sans Arabic', system-ui, sans-serif;
+  /* Font families — matching CoBnB reference */
+  --font-heading: 'Inter', 'Cairo', 'Tajawal', system-ui, sans-serif;
+  --font-body: 'DM Sans', 'Tajawal', 'Cairo', system-ui, sans-serif;
+  --font-sans: 'DM Sans', 'Tajawal', 'Cairo', system-ui, sans-serif;
 }
 
 :root {
@@ -135,9 +135,35 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  /* Arabic-specific font tuning */
+  [dir="rtl"] body {
+    font-family: 'Tajawal', 'Cairo', 'DM Sans', system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+  [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    font-family: 'Cairo', 'Tajawal', 'Inter', system-ui, sans-serif;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+  /* English-specific font tuning */
+  [dir="ltr"] body {
+    font-family: 'DM Sans', 'Tajawal', system-ui, sans-serif;
+  }
+  [dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3,
+  [dir="ltr"] h4, [dir="ltr"] h5, [dir="ltr"] h6 {
+    font-family: 'Inter', 'Cairo', system-ui, sans-serif;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -156,6 +182,33 @@
   }
   [dir="ltr"] {
     text-align: left;
+  }
+
+  /* ─── Mobile-first responsive typography ─── */
+  p, li, span, td, th, label {
+    font-size: 0.9375rem; /* 15px base */
+    line-height: 1.7;
+  }
+  @media (min-width: 640px) {
+    p, li, span, td, th, label {
+      font-size: 1rem;
+    }
+  }
+
+  /* Responsive heading scale */
+  h1 { font-size: clamp(1.75rem, 5vw, 3.5rem); }
+  h2 { font-size: clamp(1.375rem, 3.5vw, 2.25rem); }
+  h3 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
+  h4 { font-size: clamp(1rem, 2vw, 1.25rem); }
+
+  /* Better tap targets on mobile */
+  @media (max-width: 639px) {
+    button, a, [role="button"] {
+      min-height: 44px;
+    }
+    input, select, textarea {
+      font-size: 16px !important; /* prevent iOS zoom */
+    }
   }
 }
 
@@ -219,6 +272,27 @@
 
   .section-light {
     background-color: #f5f7fa;
+  }
+
+  /* Mobile-specific section padding */
+  @media (max-width: 639px) {
+    .section-transition {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  /* Mobile card grid adjustments */
+  @media (max-width: 639px) {
+    .card-hover:hover {
+      transform: none; /* disable lift on touch devices */
+    }
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

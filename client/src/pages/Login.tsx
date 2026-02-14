@@ -57,7 +57,7 @@ export default function Login() {
             <div className="w-12 h-12 bg-[#0B1E2D] rounded-xl flex items-center justify-center">
               <Building2 className="w-7 h-7 text-white" />
             </div>
-            <span className="text-3xl font-bold text-[#0B1E2D]" style={{ fontFamily: "'Tajawal', sans-serif" }}>
+            <span className="text-3xl font-bold text-[#0B1E2D] font-heading">
               إيجار
             </span>
           </Link>
